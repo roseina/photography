@@ -21,5 +21,15 @@ class FrontendController extends Controller
       
   return view('frontend.home',compact('webSetting'));
     }
+
+    public function client()
+    {
+    	return view('frontend.client');
+    }
+
+    public function bookonline()
+    {
+    	dd(2);
+    }
    
 }
