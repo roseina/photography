@@ -16,12 +16,20 @@ class includeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('frontend.includes.socialbar', function ($view) {
-          /*** For websettings ***/
-           
-           $setting=Setting::first();
-           
-           return $view->with(compact('setting'));
+        view()->composer('frontend.partials.header', function ($view) {
+          /*** For headermenus ***/
+
+          $menus=Page::where('status','active')->get();
+
+          return $view->with(compact('menus'));
+      });
+
+        view()->composer('frontend.partials.footer', function ($view) {
+          /*** For footermenus***/
+
+          $setting=Setting::first();
+
+          return $view->with(compact('setting'));
       });
 
         

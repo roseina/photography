@@ -17,19 +17,18 @@ class FrontendController extends Controller
     public function index()
     {
       
-      $webSetting=Setting::first();
       
-  return view('frontend.home',compact('webSetting'));
-    }
+      return view('frontend.home',compact('webSetting'));
+  }
 
-    public function client()
-    {
-    	return view('frontend.client');
-    }
+  public function client()
+  {
+   return view('frontend.client');
+}
 
-    public function bookonline()
-    {
-    	dd(2);
-    }
-   
+public function bookonline()
+{
+   dd(2);
+}
+
 }

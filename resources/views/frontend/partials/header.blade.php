@@ -11,11 +11,10 @@
                     <div class="menu_block">
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
-                                <li class="current"><a href="index.html">About</a></li>
-                                <li><a href="index-1.html">Portfolio</a></li>
-                                <li><a href="index-2.html">Resume</a></li>
-                                <li><a href="index-3.html">Blog</a></li>
-                                <li><a href="index-4.html">Contacts</a></li>
+                                @foreach($menus as $m)
+                                <li><a href="{{$m->slug}}">{{ucfirst($m->page_title)}}</a></li>
+                                @endforeach
+                                
                             </ul>
                         </nav>
                         <div class="clear"></div>
