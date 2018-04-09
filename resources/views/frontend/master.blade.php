@@ -16,7 +16,7 @@
     <div class="main">
         @yield('content')
         <!--==============================Bot_block=================================-->
-        @include('frontend.partials.subscribe')
+        {{-- @include('frontend.partials.subscribe') --}}
     </div>
     <!--==============================footer=================================-->
     @include('frontend.partials.footer')
