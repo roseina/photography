@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="grid_12">
+			@if(!empty($setting))
 				<div class="footer_socials">
 					<a href="{{URL::to($setting->facebook)}}" class="fa fa-facebook"></a>
 					<a href="{{URL::to($setting->instagram)}}" class="fa fa-instagram"></a>
@@ -15,6 +16,7 @@
 						{{$setting->address}}| {{$setting->phone1}}
 					</div>
 				</div>
+				@endif
 			</div>
 		</div>
 	</div>

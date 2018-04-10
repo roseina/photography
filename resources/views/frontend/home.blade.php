@@ -2,30 +2,15 @@
 @section('content')
 <div class="slider_wrapper">
 	<div id="camera_wrap" class="">
-		<div data-src="{{URL::asset('frontend/images/slide.jpg')}}">
+	@foreach($homecomponent as $home)
+		<div data-src="{{URL::asset('uploads/homecomponent/images/'.$home->featured_image)}}">
 			<div class="caption fadeIn">
-				<div class="title">Love</div>
-				<p>In mollis erat mattis neque facilisis, sit amet ultricies erat rutrumras  facilisis nulla vel viverra auctor, leo magna sodales felis, quis malesuada ibh odio ut velit. Proin pharetra luctus diam, a scelerisque eros convallis</p>
-				<p>Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a,mmodo luctus libero. Praesent faucibus malesu</p>
-				<a href="#">Learn More</a>
+				<div class="title">{{ $home->title }}</div>
+				<p>{{ $home->description }}</p>
+				
 			</div>
 		</div>
-		<div data-src="{{URL::asset('frontend/images/slide1.jpg')}}">
-			<div class="caption fadeIn">
-				<div class="title">Nude Art</div>
-				<p>In mollis erat mattis neque facilisis, sit amet ultricies erat rutrumras  facilisis nulla vel viverra auctor, leo magna sodales felis, quis malesuada ibh odio ut velit. Proin pharetra luctus diam, a scelerisque eros convallis</p>
-				<p>Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a,mmodo luctus libero. Praesent faucibus malesu</p>
-				<a href="#">Learn More</a>
-			</div>
-		</div>
-		<div data-src="{{URL::asset('frontend/images/slide2.jpg')}}">
-			<div class="caption fadeIn">
-				<div class="title">In Motion</div>
-				<p>In mollis erat mattis neque facilisis, sit amet ultricies erat rutrumras  facilisis nulla vel viverra auctor, leo magna sodales felis, quis malesuada ibh odio ut velit. Proin pharetra luctus diam, a scelerisque eros convallis</p>
-				<p>Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a,mmodo luctus libero. Praesent faucibus malesu</p>
-				<a href="#">Learn More</a>
-			</div>
-		</div>
+		@endforeach
 	</div>
 </div>
 <!--=====================Content======================-->

@@ -27,17 +27,18 @@
 						{!! csrf_field() !!}
 
 						<div class="form-group">
+						<input type="hidden" name="id" value="{{ $data->id }}">
 							<label for="focusedinput" class="col-sm-2 control-label">Title</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="title" id="focusedinput" placeholder="Home component name" value={{ $data->title }}>
+								<input type="text" class="form-control1" name="title" id="focusedinput" placeholder="Home component name" value="{{ $data->title }}">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="focusedinput" class="col-sm-2 control-label">Link</label>
-							<div class="col-sm-8">
-								<input type="text" class="form-control1" name="url" id="focusedinput" placeholder="link" value={{ $data->url }}>
+								<label class="col-sm-2 control-label">Description</label>
+								<div class="col-sm-5">
+									<textarea name="description" id="" class="form-control texteditor" rows="10">{{$data->description}}</textarea>
+								</div>
 							</div>
-						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Upload an image file</label>
@@ -61,8 +62,8 @@
 						<div class="form-group">
 							<label for="radio" class="col-sm-2 control-label">Status</label>
 							<div class="col-sm-8">
-								<div class="radio-inline"><label><input type="radio" name='status' value="Active" > Active</label></div>
-								<div class="radio-inline"><label><input type="radio" name="status" value=" Inactive"> Inactive</label></div>
+								<div class="radio-inline"><label><input type="radio" name='status' value="Active" @if($data->status=="Active") checked="checked" @endif > Active</label></div>
+								<div class="radio-inline"><label><input type="radio" name="status" value=" Inactive" @if($data->status=="Inactive") checked="checked" @endif> Inactive</label></div>
 							</div>
 						</div>
 						<button type="submit" class="btn btn-success w3ls-button">Submit</button> 

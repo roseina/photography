@@ -32,7 +32,6 @@ class HomeComponentController extends Controller
 	public function store(Request $request)
 	{
 		$input=$request->all();
-		dd($input);
 		if(Input::hasFile('featured_image'))
 			{
 				if (is_dir($this->pathBig) != true) {
@@ -46,6 +45,7 @@ class HomeComponentController extends Controller
 				$image->save($fileNameDir, 100);
 				$input['featured_image'] = $fileName;
 			}
+			$input['url']='home';
 
 			if($this->model->create($input))
 			{
@@ -76,55 +76,33 @@ class HomeComponentController extends Controller
 			$id=Input::get('id');
 			$data=$this->model->where('id',$id)->first();
 			$editData=$request->all();
-			if(Input::hasFile('image'))
+			if(Input::hasFile('featured_image'))
 				{
-					$path = public_path('uploads/banner/images');
+					$path = $this->pathBig;
 
-					if($data->image!=null)
+					if($data->featured_image!=null)
 					{
-						$path1 = $path . '/' . $data->image;
+						$path1 = $path . '/' . $data->featured_image;
 
 						File::delete($path1);
 					}
 
 					$directory = $path;
-					$fileName = uniqid() . '.' . Input::file('image')->getClientOriginalExtension();
+					$fileName = uniqid() . '.' . Input::file('featured_image')->getClientOriginalExtension();
 					$fileNameDir = $directory . '/' . $fileName;
-					$image = Image::make(Input::file('image'));
-					$image->fit(158,224);
+					$image = Image::make(Input::file('featured_image'));
+					$image->fit(1920,750);
 
 					$image->save($fileNameDir, 100);
-					$editData['image'] = $fileName;
+					$editData['featured_image'] = $fileName;
 				}
-
-				if(Input::hasFile('icon'))
-					{
-						$path = public_path('uploads/banner/icons');
-
-						if($data->icon!=null)
-						{
-							$path1 = $path . '/' . $data->icon;
-
-							File::delete($path1);
-						}
-
-						$directory = $path;
-						$fileName = uniqid() . '.' . Input::file('icon')->getClientOriginalExtension();
-						$fileNameDir = $directory . '/' . $fileName;
-						$image = Image::make(Input::file('icon'));
-						$image->fit(158,224);
-
-						$image->save($fileNameDir, 100);
-						$editData['icon'] = $fileName;
-					}
-
 					if($data->update($editData))
 					{
-						return redirect($this->redirectUrl)->withErrors(['alert-success'=>'The banner has been successfully updated!']);
+						return redirect($this->redirectUrl)->withErrors(['alert-success'=>'The data has been successfully updated!']);
 					}
 					else
 					{
-						return redirect($this->redirectUrl)->withErrors(['alert-danger'=>'Sorry,the banner couldnot be updated!']);
+						return redirect($this->redirectUrl)->withErrors(['alert-danger'=>'Sorry,the data couldnot be updated!']);
 					}
 				}
 
@@ -134,30 +112,15 @@ class HomeComponentController extends Controller
 					$alldatas=$this->model->where('id',$id)->first();
 					if($alldatas!=null)
 					{
-
-						if(Input::hasFile('icon'))
-							{
-								$path = public_path('uploads/banner/icons');
-
-								if($alldatas->icon!=null)
+							if(Input::hasFile('featured_image'))
 								{
-									$path1 = $path . '/' . $alldatas->icon;
-
-									File::delete($path1);
-									$allDatas->image="";
-									$alldatas->save();
-								}
-							}
-							if(Input::hasFile('image'))
-								{
-									$path = public_path('uploads/banner/images');
-
-									if($alldatas->image!=null)
+									$path = $this->public_path();
+									if($alldatas->featured_image!=null)
 									{
-										$path1 = $path . '/' . $alldatas->image;
+										$path1 = $path . '/' . $alldatas->featured_image;
 
 										File::delete($path1);
-										$allDatas->icon="";
+										$allDatas->featured_image="";
 										$alldatas->save();
 									}
 								}

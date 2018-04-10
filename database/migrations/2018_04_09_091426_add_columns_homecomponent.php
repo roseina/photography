@@ -18,6 +18,15 @@ class AddColumnsHomecomponent extends Migration
                 {
                     $table->string('url')->after('title')->nullable();
                 }
+        if(Schema::hasColumn('homecomponent','link'))
+                {
+                    $table->dropColumn('link');
+                }
+           
+ if(!Schema::hasColumn('homecomponent','description'))
+                {
+                    $table->text('description')->after('url')->nullable();
+                }
             });
         Schema::table('pages', function (Blueprint $table) {
             if(!Schema::hasColumn('pages','position'))
@@ -38,6 +47,16 @@ class AddColumnsHomecomponent extends Migration
           if(Schema::hasColumn('homecomponent','url'))
             {
                 $table->dropColumn('url');
+            }
+       
+         if(!Schema::hasColumn('homecomponent','link'))
+                {
+                    $table->string('link')->after('title')->nullable();
+                }
+           
+ if(Schema::hasColumn('homecomponent','description'))
+            {
+                $table->dropColumn('description');
             }
         });
         Schema::table('pages', function (Blueprint $table) {

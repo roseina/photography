@@ -16,14 +16,18 @@ class FrontendController extends Controller
 
     public function index()
     {
-      
-      
-      return view('frontend.home',compact('webSetting'));
+      $homecomponent=Homecomponent::where('status','Active')->get();
+      return view('frontend.home',compact('homecomponent'));
   }
 
   public function client()
   {
    return view('frontend.client');
+}
+public function page($slug)
+{
+	$data=Page::where('slug',$slug)->first();
+	return view('frontend.page',$data);
 }
 
 public function bookonline()
