@@ -18,6 +18,8 @@ class galleryController extends Controller
 	{
 		$this->model=$gal;
 		$this->gallery= $gallery;
+		$this->pathBig = public_path() . '/uploads/gallery/gallery_images';
+		$this->photoPath= public_path() . '/uploads/gallery/photos';
 		
 	}
 
@@ -34,12 +36,13 @@ class galleryController extends Controller
 	public function savegallery(Request $request)
 	{
 
-		
+		$input=$request->all();
 		$rules=['name'=>'required|unique:gallery',
-		'slug' => 'required|unique:gallery|max:2|regex:/^.*(?=.*[a-z]).*$/|',']',
-		'html_title'=>'required',
-		'short_desc'=>'required',
-		'status'=>'required'];
+		// 'slug' => 'required|unique:gallery|max:20',
+		// 'html_title'=>'required',
+		// 'short_desc'=>'required',
+		// 'status'=>'required'
+		];
 
 		$messages=['name.required'=>'please provide the name to the gallery!',
 		'name.unique'=>'The gallery name has already been taken',
@@ -56,7 +59,21 @@ class galleryController extends Controller
 		}
 		else
 		{
-			if($this->model->saveGallery($request->all()))
+			if(Input::hasFile('image'))
+			{
+				if (is_dir($this->pathBig) != true) {
+					\File::makeDirectory($this->pathBig, $mode = 0777, true);
+				}
+				$fileName = uniqid() . '.' . Input::file('image')->getClientOriginalExtension();
+				$fileNameDir = $this->pathBig . '/' . $fileName;
+				$image = Image::make(Input::file('image'));
+				$image->fit(370,352);
+
+				$image->save($fileNameDir, 100);
+				$input['image'] = $fileName;
+			}
+
+			if($this->model->create($input))
 
 			{
 				return redirect::to('admin/gallery')->withErrors(['alert-success'=>'The gallery has been successfully added']);
@@ -79,13 +96,13 @@ class galleryController extends Controller
 
 	public function updategallery(Request $request)
 	{
-		$gallery_id=$this->model->find($request->id);
+		$gallery=$this->model->find($request->id);
 		$editinput = $request->all();
 		$rules=['name'=>'required',
-		'slug' => 'required|max:2|regex:/^.*(?=.*[a-z]).*$/|unique:gallery,slug,' . $request->get('id'),
-		'html_title'=>'required',
-		'short_desc'=>'required',
-		'status'=>'required'
+		// 'slug' => 'required|max:2|regex:/^.*(?=.*[a-z]).*$/|unique:gallery,slug,' . $request->get('id'),
+		// 'html_title'=>'required',
+		// 'short_desc'=>'required',
+		// 'status'=>'required'
 		];
 
 		$messages=['name.required'=>'please provide the name to the gallery!',
@@ -101,7 +118,22 @@ class galleryController extends Controller
 		}
 		else
 		{
-			if($this->model->updategallery($editinput, $gallery_id))
+			if (null !== $gallery->image && file_exists($this->pathBig . '/' . $gallery->image)) {
+					// \File::delete($this->pathMedium.'/'.$gallery->image);
+					\File::delete($this->pathBig . '/' . $gallery->image);
+				}
+				if (is_dir($this->pathBig) != true) {
+					\File::makeDirectory($this->pathBig, $mode = 0777, true);
+				}
+
+				$image = $request->file('image');
+
+				$filename = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+
+				$imgBig = \Image::make($request->file('image'))->fit(370, 350)->save($this->pathBig . '/' . $filename);
+
+				$editinput['image'] = $filename;
+			if($gallery->update($editinput))
 			{
 				return redirect::to('admin/gallery')->withErrors(['alert-success'=>'Data successfully updated!']);
 			}
@@ -175,12 +207,12 @@ class galleryController extends Controller
 		
 		$rules=[
 		'gallery_id'=>'required',
-		'image'=>'required|max:2048',
+		'image'=>'required',
 		'status'=>'required'];
 		$messages=
 		['gallery_id.required'=>'Please select the gallery name to upload the file!',
 		'image.required'=>'Please select an image to upload!',
-		'image.max'=>'Please select a file upto 2 MB!',
+		// 'image.max'=>'Please select a file upto 2 MB!',
 		'status.required'=>'please select the status field!'];
 		$validate= Validator::make($input,$rules,$messages );
 		if($validate->fails())
@@ -191,17 +223,16 @@ class galleryController extends Controller
 		{
 			if(Input::hasFile('image'))
 			{
-				
-				$directory = public_path() . '/uploads/gallery/images';
+				if (is_dir($this->photoPath) != true) {
+					\File::makeDirectory($this->photoPath, $mode = 0777, true);
+				}
 				$fileName = uniqid() . '.' . Input::file('image')->getClientOriginalExtension();
-				$fileNameDir = $directory . '/' . $fileName;
+				$fileNameDir = $this->photoPath . '/' . $fileName;
 				$image = Image::make(Input::file('image'));
-				$image->fit(158,224);
 
 				$image->save($fileNameDir, 100);
 				$input['image'] = $fileName;
 			}
-			
 			if($this->gallery->saveGalleryImages($input))
 			{
 
@@ -271,7 +302,7 @@ class galleryController extends Controller
 		
 		$rules=[
 		'gallery_id'=>'required',
-		'image'=>'sometimes|max:2048',
+		'image'=>'sometimes',
 		'status'=>'required'];
 
 		$messages=
@@ -285,25 +316,21 @@ class galleryController extends Controller
 			return redirect::back()->withErrors($validate)->withInput($input);
 		}
 		else
-		{ $path = public_path('uploads/gallery/images');
-
-			if(Input::hasFile('image'))
-			{
-				if($photos->image!=null)
-				{
-					$path1 = $path . '/' . $photos->image;
-
-                    File::delete($path1);
-				}
+		{ if (null !== $photos->image && file_exists($this->photoPath . '/' . $photos->image)) {
 				
-				$directory = $path;
-				$fileName = uniqid() . '.' . Input::file('image')->getClientOriginalExtension();
-				$fileNameDir = $directory . '/' . $fileName;
-				$image = Image::make(Input::file('image'));
-				$image->fit(158,224);
+					\File::delete($this->photoPath . '/' . $photos->image);
+				}
+				if (is_dir($this->photoPath) != true) {
+					\File::makeDirectory($this->photoPath, $mode = 0777, true);
+				}
 
-				$image->save($fileNameDir, 100);
-				$input['image'] = $fileName;
+				$image = $request->file('image');
+
+				$filename = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+
+				$imgBig = \Image::make($request->file('image'))->save($this->photoPath . '/' . $filename);
+
+				$input['image'] = $filename;
 			}
 			
 			if($this->gallery->updatePhotos($id,$input))
@@ -315,7 +342,7 @@ class galleryController extends Controller
 			{
 				return redirect::to('admin/gallery/galleryphotos')->withErrors(['alert-danger'=>'The photo couldnot be updated now!']);
 			}
-		}	}
+			}
 		public function delImage()
 		{
 			$photo_id=Input::get('id');

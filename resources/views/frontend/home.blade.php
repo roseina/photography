@@ -32,18 +32,20 @@
 	<div class="container"><div class="ic"></div>
 	<div class="row">
 		<div class="grid_12">
-			<h2>Portfolio</h2>
+			<h2>Gallery</h2>
 			<div class="gallery">
 				<div class="row">
+				
 					<div class="grid_4">
 						<a href="{{URL::asset('frontend/images/big1.jpg')}}" class="gal_item">
 
 							<img src="{{URL::asset('frontend/images/page1_img1.jpg')}}" alt="">
-							<div class="gal_caption">People</div>
+							<div class="gal_caption">test</div>
 							<span class="gal_magnify"></span>
 						</a>
 					</div>
-					<div class="grid_4">
+				h
+					{{-- <div class="grid_4">
 						<a href="{{URL::asset('frontend/images/big2.jpg')}}" class="gal_item">
 							<img src="{{URL::asset('frontend/images/page1_img2.jpg')}}" alt="">
 							<div class="gal_caption">Fashion</div>
@@ -77,7 +79,7 @@
 							<div class="gal_caption">Nature</div>
 							<span class="gal_magnify"></span>
 						</a>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 		</div>

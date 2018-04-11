@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Banner;
 use App\Homecomponent;
-// use App\Event;
+use App\Gallery;
 use App\GalleryImage;
 use App\Page;
 use App\Setting;
@@ -17,7 +17,8 @@ class FrontendController extends Controller
     public function index()
     {
       $homecomponent=Homecomponent::where('status','Active')->get();
-      return view('frontend.home',compact('homecomponent'));
+      $gallery=Gallery::where('status','Active')->get();
+      return view('frontend.home',compact('homecomponent','gallery'));
   }
 
   public function client()

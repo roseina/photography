@@ -45,8 +45,8 @@
                 
 
 
-                @if($datas->image != "" && file_exists(public_path('uploads/gallery/images/'.$datas->image)))
-                <img src="{{ asset('uploads/gallery/images/'.$datas->image) }}"  width="162">
+                @if($datas->image != "" && file_exists(public_path('uploads/gallery/photos/'.$datas->image)))
+                <img src="{{ asset('uploads/gallery/photos/'.$datas->image) }}"  width="162">
                 <a href="{{ URL::to('admin/gallery/galleryphotos/delimage?id='.$datas->id.'&image=image')}}" data-confirm='Are you sure you want to remove this image?' style="margin-top: 20px;" class="btn btn-danger">Remove Image </a>
                 @else
                 <p>No Image.</p>

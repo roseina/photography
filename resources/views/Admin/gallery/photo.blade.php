@@ -46,9 +46,9 @@
 
 								{{ $a++ }}</td>
 								<td>
-									@if($row->image != "" && file_exists(public_path('uploads/gallery/images/'.$row->image)))
+									@if($row->image != "" && file_exists(public_path('uploads/gallery/photos/'.$row->image)))
 									
-									<img src="{{ asset('uploads/gallery/images/'.$row->image) }}"  width="162">
+									<img src="{{ asset('uploads/gallery/photos/'.$row->image) }}"  width="162">
                 @else
                 <p>No Image.</p>
                 @endif
@@ -65,7 +65,7 @@
 
 								</td>
 								<td>
-									<a class="w3ls-button bg-success text-center btn" href="{{URL::to('admin/gallery/galleryphotos/editphoto??id='.$row->id)}}">Edit</a>
+									<a class="w3ls-button bg-success text-center btn" href="{{URL::to('admin/gallery/galleryphotos/editphoto?id='.$row->id)}}">Edit</a>
 
 									<a class="w3ls-button bg-danger text-center btn"  data-confirm="Are you sure you want to delete?" href='{{ URL::to('admin/gallery/galleryphotos/deletephoto?id='.$row->id) }}'>Delete</a>
 
