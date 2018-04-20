@@ -14,26 +14,26 @@ use App\Setting;
 class FrontendController extends Controller
 {
 
-    public function index()
-    {
-      $homecomponent=Homecomponent::where('status','Active')->get();
-      $gallery=Gallery::where('status','Active')->get();
-      return view('frontend.home',compact('homecomponent','gallery'));
+  public function index()
+  {
+    $homecomponent=Homecomponent::where('status','Active')->get();
+    $gallery=Gallery::where('status','Active')->get();
+    return view('frontend.home',compact('homecomponent','gallery'));
   }
 
   public function client()
   {
    return view('frontend.client');
-}
-public function page($slug)
-{
-	$data=Page::where('slug',$slug)->first();
-	return view('frontend.page',$data);
-}
+ }
+ public function page($slug)
+ {
+   $data=Page::where('slug',$slug)->first();
+   return view('frontend.page',compact('data'));
+ }
 
-public function bookonline()
-{
+ public function bookonline()
+ {
    dd(2);
-}
+ }
 
 }

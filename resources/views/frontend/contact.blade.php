@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Photography">
+    <meta name="keywords" content="responsive, photography bootstrap template, creative portfolio, html5, css3, retina ready" />
+    <meta name="author" content="KingStudio.ro">
+
+    <!-- favicon -->
+    <link rel="icon" href="images/favicon.png">
+    <!-- page title -->
+    <title>EyeCatcher - Photography Theme</title>
+    <!-- bootstrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/linear-icons.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+    <!-- preloader -->
+    <div id="preloader">
+        <div class="spinner spinner-round"></div>
+    </div>
+    <!-- / preloader -->
+
+    <!-- header -->
+    <header>
+        <nav class="navbar-1 navbar navbar-default fixed-top">
+            <div class="container-fluid navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo"></a>
+            </div><!-- / navbar-header -->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><span>Home</span></a></li>
+                    <li><a href="about.html"><span>About Us</span></a></li>
+                    <li><a href="services.html"><span>Services</span></a></li>
+                    <li><a href="gallery.html"><span>Gallery</span></a></li>
+                    <li><a href="journal.html"><span>Journal</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>Pages</span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about-me.html"><span>About Me</span></a></li>
+                            <li><a href="pricing.html"><span>Pricing</span></a></li>
+                            <li><a href="contact-me.html"><span>Contact Me</span></a></li>
+                            <li><a href="portfolio-3col.html"><span>Portfolio 3Col</span></a></li>
+                            <li><a href="portfolio-4col.html"><span>Portfolio 4Col</span></a></li>
+                            <li><a href="single-project.html"><span>Single Project</span></a></li>
+                            <li><a href="single-video-project.html"><span>Video Project</span></a></li>
+                            <li><a href="single-slider-project.html"><span>Slider Project</span></a></li>
+                            <li><a href="single-post.html"><span>Blog Post</span></a></li>
+                            <li><a href="components.html"><span>Components</span></a></li>
+                            <li><a href="404.html"><span>404</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="contact.html"><span>Contact</span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </nav>
+    </header>
+    <!-- / header -->
+
+    <!-- content -->
+    <div id="contact-banner" class="dark has-fixed-top">
+        <div class="banner text-center">
+            <div class="container-fluid">
+                <div class="page-header">
+                    <h2>Contact Us</h2>
+                </div><!-- / page-header -->
+                <p>Quisque vitae phasellus vitae volutpat erat.</p>
+                <a href="#page-content" class="page-scroll"><i class="lnr lnr-chevron-down scroll-down"></i></a>
+            </div><!-- / container-fluid -->
+        </div><!-- / banner -->
+    </div><!-- / contact-banner -->
+
+    <div id="page-content" class="container-fluid">
+        <div class="section-w-image">
+            <div class="row">
+                <div class="col-md-5 contact-image"><p></p></div>
+                <div class="col-md-7 col-md-offset-5 section-description dark">
+                    <div class="page-header text-left">
+                        <h2>Get in Touch</h2>
+                    </div><!-- / page-header -->
+                    <p>Phasellus vitae volutpat erat. Maecenas at gravida quam. Vestibulum vel pulvinar lorem. Nunc in rutrum est. Aenean auctor vitae libero non eleifend. Ut convallis libero et dignissim tristique. Mauris hendrerit fermentum lectus, non dignissim diam dapibus nec. Vestibulum eu justo eu odio posuere.</p>
+                    <div class="contact-info">
+                        <div class="info">
+                            <p><i class="lnr lnr-map-marker"></i><span>Miami, S Miami Ave, SW 20th.</span></p>
+                        </div>
+                        <div class="info">
+                            <a href="tel:+0123456789"><i class="lnr lnr-phone-handset"></i><span>+0123 456 789</span></a>
+                        </div>
+                        <div class="info">
+                            <a href="mailto:hello@yoursite.com"><i class="lnr lnr-envelope"></i><span>hello@yoursite.com</span></a>
+                        </div>
+                    </div><!-- / contact-info -->
+                </div><!-- / section-description -->
+            </div><!-- / row -->
+        </div><!-- / contact-w-image-left -->
+        <div class="row contact-area">
+            <div class="col-sm-6 map">
+                <!-- google map -->
+                <div id="map"></div>
+                <!-- / google map -->
+            </div><!-- / map -->
+
+            <div class="col-sm-6 contact-form-area">
+                <!-- contact form 1col -->
+                <div id="contact-form-1">
+                    <form id="contactForm" data-toggle="validator">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <button type="submit" id="form-submit" class="btn btn-md btn-primary-filled btn-form-submit">Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>  
+                    </form>
+                </div><!-- / contact form 1col -->
+            </div><!-- / col-sm-6 -->
+        </div><!-- / contact-area -->
+    </div><!-- / page-content -->
+    <!-- / content -->
+
+    <!-- footer -->
+    <footer class="light-footer fixed-bottom">
+        <div class="container-fluid">
+            <p class="footer-info">© 2016 - <strong>EyeCatcher</strong> - Photography. All Rights Reserved.<span class="footer-contact-info"><a href="mailto:hello@yoursite.com" class="footer-ci"><i class="lnr lnr-envelope"></i>hello@yoursite.com</a> <a href="tel:+0123456789" class="footer-ci"><i class="lnr lnr-phone-handset"></i>+0123 456 789</a></span>
+                <span class="social pull-right">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-tumblr"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </span>
+            </p>
+        </div><!-- / container -->
+    </footer>
+    <!-- / footer -->
+
+    <!-- javascript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+
+    <script src="js/scrolling-nav.js"></script>
+
+    <!-- preloader -->
+    <script src="js/preloader.js"></script>
+    <!-- / preloader -->
+
+    <!-- google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA40uewXP25u1A4o9u8ueBimZZwIdNLkY"></script>
+    <script src="js/map.js"></script>
+    <!-- / google maps -->
+
+    <!-- contact-form -->
+    <script src="js/validator.min.js" type="text/javascript"></script>
+    <script src="js/form-scripts.js" type="text/javascript"></script>
+    <!-- / contact-form -->
+    <!-- / javascript -->
+</body>
+
+</html>

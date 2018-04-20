@@ -2,7 +2,7 @@
 @section('content')
 <div class="slider_wrapper">
 	<div id="camera_wrap" class="">
-	@foreach($homecomponent as $home)
+		@foreach($homecomponent as $home)
 		<div data-src="{{URL::asset('uploads/homecomponent/images/'.$home->featured_image)}}">
 			<div class="caption fadeIn">
 				<div class="title">{{ $home->title }}</div>
@@ -35,7 +35,16 @@
 			<h2>Gallery</h2>
 			<div class="gallery">
 				<div class="row">
-				
+					<figure class="effect-bubba">
+						<img src="{{URL::asset('frontend/images/big1.jpg')}}" alt="Image 8" class="img-fluid">
+						<figcaption>
+							<h2>Light <span>Bridge</span></h2>
+							<p>Fusce faucibus metus in augue</p>
+							<a href="img/img-11-08.jpg">View more</a>
+						</figcaption>
+					</figure>
+
+					
 					<div class="grid_4">
 						<a href="{{URL::asset('frontend/images/big1.jpg')}}" class="gal_item">
 
@@ -44,8 +53,8 @@
 							<span class="gal_magnify"></span>
 						</a>
 					</div>
-				h
-					{{-- <div class="grid_4">
+					
+					<div class="grid_4">
 						<a href="{{URL::asset('frontend/images/big2.jpg')}}" class="gal_item">
 							<img src="{{URL::asset('frontend/images/page1_img2.jpg')}}" alt="">
 							<div class="gal_caption">Fashion</div>
@@ -79,7 +88,7 @@
 							<div class="gal_caption">Nature</div>
 							<span class="gal_magnify"></span>
 						</a>
-					</div> --}}
+					</div> 
 				</div>
 			</div>
 		</div>
