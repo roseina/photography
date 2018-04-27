@@ -33,11 +33,11 @@
 							</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-2 control-label">Description</label>
-								<div class="col-sm-5">
-									<textarea name="description" id="" class="form-control texteditor" rows="10">{{ Input::old('description') }}</textarea>
-								</div>
+							<label for="focusedinput" class="col-sm-2 control-label">Link</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control1" name="url" id="focusedinput" placeholder="link" value={{ Input::old('url') }}>
 							</div>
+						</div>
 
 						<div class="form-group">
 							<label class="col-sm-2 control-label"> Upload an image file</label>

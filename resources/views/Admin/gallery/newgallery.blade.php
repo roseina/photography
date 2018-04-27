@@ -22,27 +22,20 @@
 				<div class="forms">
 					<h3 class="title1"></h3>
 					<div class="form-three widget-shadow">
-						<form class="form-horizontal" action="{{ URL::to('admin/gallery/savegallery')}}" method="post" enctype="multipart/form-data">
+						<form class="form-horizontal" action="{{ URL::to('admin/gallery/savegallery')}}" method="post">
 						{!! csrf_field() !!}
 							<div class="form-group">
 								<label for="focusedinput" class="col-sm-2 control-label">Gallery Name</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" name="name" id="head_title" placeholder="Gallery name" value={{ Input::old('name') }}>
+									<input type="text" class="form-control1" name="name" id="focusedinput" placeholder="Gallery name" value={{ Input::old('name') }}>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="focusedinput" class="col-sm-2 control-label">Slug</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control1" name="slug" id="slug" placeholder="slug" value={{ Input::old('slug') }}>
+									<input type="text" class="form-control1" name="slug" id="focusedinput" placeholder="slug" value={{ Input::old('slug') }}>
 								</div>
 							</div>
-							<div class="form-group">
-							<label class="col-sm-2 control-label"> Upload an image file</label>
-							<div class="col-sm-6">
-								<input type="file" class="form-control" name="image"   accept="image/*">
-							</div>
-
-						</div>
 							<div class="form-group">
 								<label for="focusedinput" class="col-sm-2 control-label">Html Title</label>
 								<div class="col-sm-8">

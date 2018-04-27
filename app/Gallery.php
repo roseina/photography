@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
 	protected $table='gallery';
-	protected $fillable=['name','status','html_title','html_description','html_keywords','short_desc','slug','image'];
+	protected $fillable=['name','status','html_title','html_description','html_keywords','short_desc','slug'];
 
 
 	public function saveGallery($data)

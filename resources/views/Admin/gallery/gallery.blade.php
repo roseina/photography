@@ -30,7 +30,7 @@
 					<thead>
 						<tr>
 							<th>S.N</th>
-							<th>Gallery Name</th>
+							<th> Gallery Name</th>
 							<th>slug</th>
 							<th>Status</th>
 							<th>Action</th>
@@ -42,12 +42,7 @@
 						@foreach($allDatas as $row) 
 						<tr>
 							<td>{{ $a++ }}</td>
-							<td>{{ $row->name}} <br>
-							 @if(!empty($row->image) && file_exists('uploads/gallery/gallery_images/'.$row->image))
-              <img src="{{URL::asset('uploads/gallery/gallery_images/'.$row->image)}}" style="height:100px;width:auto;">
-              @else
-              <p>No Image!</p>
-              @endif</td>
+							<td>{{ $row->name}}</td>
 							<td>{{ $row->slug }}</td>
 							<td> 
 								<a class="w3ls-button bg-@if($row->status=="Inactive"){{'danger'}}

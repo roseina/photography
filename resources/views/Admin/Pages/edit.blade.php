@@ -27,14 +27,14 @@
 							<div class="form-group">
 								<label for="focusedinput" class="col-sm-2 control-label">Page Title</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control1" name="page_title" id="head_title" placeholder="Page Title" value={{ $data->page_title }}>
+									<input type="text" class="form-control1" name="page_title" id="focusedinput" placeholder="Page Title" value={{ $data->page_title }}>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="focusedinput" class="col-sm-2 control-label">Slug</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control1" name="slug" id="slug" placeholder="Slug" value={{ $data->slug }}>
+									<input type="text" class="form-control1" name="slug" id="focusedinput" placeholder="Slug" value={{ $data->slug }}>
 								</div>
 							</div>
 							<div class="form-group">

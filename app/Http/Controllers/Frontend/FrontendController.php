@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Banner;
 use App\Homecomponent;
-use App\Gallery;
+// use App\Event;
 use App\GalleryImage;
 use App\Page;
 use App\Setting;
@@ -14,26 +14,22 @@ use App\Setting;
 class FrontendController extends Controller
 {
 
-  public function index()
-  {
-    $homecomponent=Homecomponent::where('status','Active')->get();
-    $gallery=Gallery::where('status','Active')->get();
-    return view('frontend.home',compact('homecomponent','gallery'));
-  }
+    public function index()
+    {
+      
+      $webSetting=Setting::first();
+      
+  return view('frontend.home',compact('webSetting'));
+    }
 
-  public function client()
-  {
-   return view('frontend.client');
- }
- public function page($slug)
- {
-   $data=Page::where('slug',$slug)->first();
-   return view('frontend.page',compact('data'));
- }
+    public function client()
+    {
+    	return view('frontend.client');
+    }
 
- public function bookonline()
- {
-   dd(2);
- }
-
+    public function bookonline()
+    {
+    	dd(2);
+    }
+   
 }
